@@ -1,0 +1,65 @@
+# =============== #
+# Unity generated #
+# =============== #
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uild/
+[Bb]uilds/
+[Oo]bj/
+[Bb]in/
+[Uu]serSettings/
+MemoryCaptures/
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+*.sln.meta
+*.tmp.meta
+*.svd.meta
+
+# === OS generated files === #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# === Rider/VSCode/MonoDevelop === #
+.idea/
+.vscode/
+.vs/
+*.sln
+*.user
+*.unityproj
+*.tmproj
+*.suo
+*.tmp
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# === Crash Reports === #
+sysinfo.txt
+
+# === Unity Cloud Build === #
+*.apk
+*.unitypackage
