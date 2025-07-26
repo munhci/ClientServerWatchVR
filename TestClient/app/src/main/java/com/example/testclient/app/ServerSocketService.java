@@ -67,7 +67,8 @@ public class ServerSocketService extends Service {
             String ssid = getCurrentSSID();
             if (ssid != null && ssid.equals(EXPECTED_SSID)) {
                 broadcastStatus("Connected to: " + ssid);
-                connectToServerLoop(); // blocks until disconnect
+                // blocks until disconnect
+                connectToServerLoop();
             } else {
                 broadcastStatus("Please connect to " + EXPECTED_SSID);
                 Log.d("SOCKET", "Expected " + EXPECTED_SSID + " but found " + ssid);
