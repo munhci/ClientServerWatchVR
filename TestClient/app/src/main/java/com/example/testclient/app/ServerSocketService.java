@@ -22,9 +22,14 @@ public class ServerSocketService extends Service {
     public static final String CHANNEL_ID = "socket_service_channel";
     private static final int NOTIFICATION_ID = 42;
 
-    // Match your original config
+    // This is the wifi ssid of the router in the lab
     private static final String EXPECTED_SSID = "XCI-a30c";
+    // This is the host address of the Quest headset
+    // The host is the ONLY thing you may have to change
+    // I noticed once it swapped from .2 to .3, keep an eye out for that
     private static final String HOST = "192.168.229.3";
+
+    // random number
     private static final int PORT = 56411;
 
     private VibratorManager vibratorManager;
@@ -37,7 +42,7 @@ public class ServerSocketService extends Service {
     public void onCreate() {
         super.onCreate();
 
-        // Setup vibration same as before
+        // Setup vibration
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             vibratorManager = (VibratorManager) getSystemService(Context.VIBRATOR_MANAGER_SERVICE);
             if (vibratorManager.getDefaultVibrator().areAllPrimitivesSupported(
@@ -67,7 +72,8 @@ public class ServerSocketService extends Service {
                 broadcastStatus("Please connect to " + EXPECTED_SSID);
                 Log.d("SOCKET", "Expected " + EXPECTED_SSID + " but found " + ssid);
                 try {
-                    Thread.sleep(5000); // Retry SSID check every 5 sec
+                    // Retry SSID check every 5 s
+                    Thread.sleep(5000); 
                 } catch (InterruptedException ignored) {}
             }
         }
@@ -171,7 +177,8 @@ public class ServerSocketService extends Service {
         NotificationChannel channel = new NotificationChannel(
                 CHANNEL_ID,
                 "Socket Background Service",
-                NotificationManager.IMPORTANCE_HIGH // High importance for Wear OS
+                // High importance for Wear OS, hopefully keeps things from deactivating
+                NotificationManager.IMPORTANCE_HIGH 
         );
         NotificationManager manager = getSystemService(NotificationManager.class);
         manager.createNotificationChannel(channel);
